@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Environment variables
+.env
+.env.*
+
+# VS Code
+.vscode/
+
+# Large datasets
+data/PhiUSIIL_Phishing_URL_Dataset.csv
+data/phishing_email.csv
+
+# ML model files
+*.pkl
+*.joblib
+
+# Logs
+*.log
