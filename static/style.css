@@ -1,0 +1,1842 @@
+:root {
+    --bg: #101411;
+    --surface: #151a17;
+    --surface-dark: #0d100e;
+
+    --green: #66ffb2;
+    --green-dark: #36c987;
+
+    --text: #edf5f0;
+    --muted: #7d8982;
+    --dim: #4d5851;
+
+    --danger: #ff5964;
+    --warning: #ffc857;
+
+    --shadow-dark: #080a09;
+    --shadow-light: #202721;
+
+    --border: #222a25;
+
+    --radius: 16px;
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    background: var(--bg);
+    color: var(--text);
+
+    font-family: "Inter", sans-serif;
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+.background-grid {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -3;
+
+    background-image:
+        linear-gradient(
+            rgba(102,255,178,.018) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(102,255,178,.018) 1px,
+            transparent 1px
+        );
+
+    background-size: 45px 45px;
+}
+
+
+.background-grid::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 3px,
+            rgba(255,255,255,.006) 4px
+        );
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+    height: 76px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 5vw;
+
+    background: var(--surface);
+
+    border-bottom: 1px solid #252d28;
+
+    box-shadow:
+        0 8px 20px var(--shadow-dark),
+        0 -1px 2px var(--shadow-light);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 50;
+}
+
+
+.brand {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+.brand-mark {
+    width: 40px;
+    height: 40px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 10px;
+
+    background: var(--surface);
+
+    box-shadow:
+        5px 5px 10px var(--shadow-dark),
+        -5px -5px 10px var(--shadow-light);
+
+    color: var(--green);
+
+    font-weight: 800;
+
+    font-size: 17px;
+}
+
+
+.brand-name {
+    font-size: 17px;
+
+    font-weight: 800;
+
+    letter-spacing: .2em;
+}
+
+
+.brand-sub {
+    margin-top: 3px;
+
+    color: var(--dim);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: .15em;
+}
+
+
+.nav-right {
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+
+.system-status {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--green);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: .1em;
+}
+
+
+.pulse {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--green);
+
+    box-shadow:
+        0 0 8px var(--green);
+
+    animation: pulse 2s infinite;
+}
+
+
+@keyframes pulse {
+    50% {
+        opacity: .35;
+    }
+}
+
+
+.version {
+    color: var(--dim);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.container {
+    width: min(1400px, 90%);
+
+    margin: auto;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+    min-height: 560px;
+
+    display: grid;
+
+    grid-template-columns: 1.2fr .8fr;
+
+    align-items: center;
+
+    gap: 50px;
+}
+
+
+.eyebrow {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: var(--green);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 10px;
+
+    letter-spacing: .2em;
+
+    margin-bottom: 25px;
+}
+
+
+.eyebrow-line {
+    width: 35px;
+    height: 2px;
+
+    background: var(--green);
+
+    box-shadow:
+        0 0 8px rgba(102,255,178,.5);
+}
+
+
+.hero h1 {
+    font-size: clamp(48px, 6vw, 82px);
+
+    line-height: .98;
+
+    letter-spacing: -.06em;
+
+    max-width: 800px;
+}
+
+
+.hero h1 span {
+    color: var(--green);
+}
+
+
+.hero-description {
+    max-width: 650px;
+
+    margin-top: 28px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+.capabilities {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 30px;
+}
+
+
+.capability {
+    padding: 10px 13px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    box-shadow:
+        4px 4px 8px var(--shadow-dark),
+        -3px -3px 7px var(--shadow-light);
+
+    color: var(--muted);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: .08em;
+}
+
+
+.capability span {
+    color: var(--green);
+
+    margin-right: 7px;
+}
+
+
+/* =====================================================
+   NEUMORPHIC RADAR
+===================================================== */
+
+.radar-container {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+.radar {
+    width: 310px;
+    height: 310px;
+
+    position: relative;
+
+    border-radius: 50%;
+
+    background: var(--surface);
+
+    box-shadow:
+        15px 15px 30px var(--shadow-dark),
+        -15px -15px 30px var(--shadow-light),
+
+        inset 2px 2px 5px rgba(255,255,255,.025),
+        inset -3px -3px 8px rgba(0,0,0,.3);
+}
+
+
+.radar-ring {
+    position: absolute;
+
+    border-radius: 50%;
+
+    border: 1px solid #26332b;
+}
+
+
+.ring-one {
+    inset: 12%;
+}
+
+
+.ring-two {
+    inset: 27%;
+}
+
+
+.ring-three {
+    inset: 42%;
+}
+
+
+.radar-cross {
+    position: absolute;
+
+    background: #26332b;
+}
+
+
+.horizontal {
+    width: 76%;
+
+    height: 1px;
+
+    top: 50%;
+    left: 12%;
+}
+
+
+.vertical {
+    width: 1px;
+
+    height: 76%;
+
+    left: 50%;
+    top: 12%;
+}
+
+
+.radar-sweep {
+    position: absolute;
+
+    width: 45%;
+    height: 45%;
+
+    left: 50%;
+    top: 50%;
+
+    transform-origin: 0 0;
+
+    background:
+        conic-gradient(
+            from 0deg,
+            rgba(102,255,178,.3),
+            transparent 50deg
+        );
+
+    animation: sweep 4s linear infinite;
+}
+
+
+@keyframes sweep {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+.radar-center {
+    position: absolute;
+
+    width: 58px;
+    height: 58px;
+
+    left: calc(50% - 29px);
+    top: calc(50% - 29px);
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: var(--surface);
+
+    box-shadow:
+        5px 5px 10px var(--shadow-dark),
+        -5px -5px 10px var(--shadow-light),
+
+        inset 2px 2px 4px rgba(0,0,0,.4);
+
+    color: var(--green);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+}
+
+
+.radar-point {
+    position: absolute;
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: var(--green);
+
+    box-shadow:
+        0 0 10px var(--green);
+
+    animation: radarPoint 2s infinite;
+}
+
+
+.point-one {
+    left: 66%;
+    top: 27%;
+}
+
+
+.point-two {
+    left: 30%;
+    top: 68%;
+
+    animation-delay: .7s;
+}
+
+
+.point-three {
+    left: 30%;
+    top: 34%;
+
+    animation-delay: 1.3s;
+}
+
+
+@keyframes radarPoint {
+    50% {
+        transform: scale(2);
+
+        opacity: .3;
+    }
+}
+
+
+.radar-label {
+    margin-top: 20px;
+
+    text-align: center;
+
+    color: var(--dim);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: .2em;
+
+    line-height: 1.6;
+}
+
+
+.radar-label strong {
+    color: var(--green);
+}
+
+
+/* =====================================================
+   NEUMORPHIC ANALYZER
+===================================================== */
+
+.analyzer-card {
+    padding: 35px;
+
+    border-radius: var(--radius);
+
+    background: var(--surface);
+
+    border: 1px solid #202822;
+
+    box-shadow:
+        15px 15px 30px var(--shadow-dark),
+        -15px -15px 30px var(--shadow-light);
+}
+
+
+.card-header {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    margin-bottom: 28px;
+}
+
+
+.section-number {
+    margin-bottom: 9px;
+
+    color: var(--green);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: .17em;
+}
+
+
+.card-header h2,
+.results-header h2 {
+    font-size: 25px;
+
+    letter-spacing: -.03em;
+}
+
+
+.card-header p {
+    margin-top: 6px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+.input-badge {
+    padding: 9px 13px;
+
+    border-radius: 7px;
+
+    color: var(--green);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: .1em;
+
+    box-shadow:
+        inset 3px 3px 6px var(--shadow-dark),
+        inset -3px -3px 6px var(--shadow-light);
+}
+
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+.textarea-wrapper {
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    background: var(--surface-dark);
+
+    border: 1px solid #202822;
+
+    box-shadow:
+        inset 6px 6px 12px #080b09,
+        inset -4px -4px 10px #1a201c;
+}
+
+
+.textarea-top,
+.textarea-bottom {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 11px 15px;
+
+    border-bottom: 1px solid #1d251f;
+
+    color: var(--dim);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: .1em;
+}
+
+
+.textarea-bottom {
+    border-top: 1px solid #1d251f;
+
+    border-bottom: none;
+}
+
+
+.secure-input {
+    color: var(--green);
+}
+
+
+textarea {
+    width: 100%;
+
+    min-height: 220px;
+
+    padding: 20px;
+
+    border: none;
+
+    outline: none;
+
+    resize: vertical;
+
+    background: transparent;
+
+    color: var(--text);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+
+textarea::placeholder {
+    color: #3f4943;
+}
+
+
+/* =====================================================
+   BUTTONS — PRESSED NEUMORPHIC EFFECT
+===================================================== */
+
+.action-row {
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 18px;
+}
+
+
+.analyze-btn {
+    height: 50px;
+
+    padding: 0 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: var(--green);
+
+    color: #07100b;
+
+    font-weight: 800;
+
+    font-size: 10px;
+
+    letter-spacing: .1em;
+
+    cursor: pointer;
+
+    box-shadow:
+        6px 6px 12px #080b09,
+        -4px -4px 8px #1e2721;
+
+    transition: .2s;
+}
+
+
+.analyze-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        8px 8px 15px #080b09,
+        -5px -5px 10px #202a23;
+}
+
+
+.analyze-btn:active {
+    transform: translateY(1px);
+
+    box-shadow:
+        inset 4px 4px 8px rgba(0,0,0,.25),
+        inset -3px -3px 6px rgba(255,255,255,.12);
+}
+
+
+.clear-btn {
+    height: 50px;
+
+    padding: 0 20px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 9px;
+
+    border: 1px solid #242d27;
+
+    background: var(--surface);
+
+    color: var(--muted);
+
+    text-decoration: none;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+
+    box-shadow:
+        5px 5px 10px var(--shadow-dark),
+        -4px -4px 8px var(--shadow-light);
+
+    transition: .2s;
+}
+
+
+.clear-btn:hover {
+    color: var(--text);
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.loading-panel {
+    display: none;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 20px;
+
+    padding: 18px;
+
+    border-radius: 12px;
+
+    background: var(--surface);
+
+    box-shadow:
+        8px 8px 15px var(--shadow-dark),
+        -5px -5px 10px var(--shadow-light);
+}
+
+
+.loading-panel.active {
+    display: flex;
+}
+
+
+.loader {
+    width: 21px;
+    height: 21px;
+
+    border-radius: 50%;
+
+    border: 2px solid #29352e;
+
+    border-top-color: var(--green);
+
+    animation: spin .8s linear infinite;
+}
+
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+.loading-panel strong {
+    color: var(--green);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+}
+
+
+.loading-panel p {
+    margin-top: 4px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+}
+
+
+/* =====================================================
+   RESULTS
+===================================================== */
+
+.results-section {
+    margin-top: 90px;
+
+    padding-bottom: 80px;
+}
+
+
+.results-header {
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+}
+
+
+.scan-complete {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--green);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+}
+
+
+/* =====================================================
+   RESULT CARDS
+===================================================== */
+
+.verdict-grid {
+    display: grid;
+
+    grid-template-columns: 1.4fr 1fr 1fr;
+
+    gap: 18px;
+}
+
+
+.verdict-card,
+.metric-card {
+    min-height: 210px;
+
+    padding: 25px;
+
+    border-radius: 14px;
+
+    background: var(--surface);
+
+    border: 1px solid #222a25;
+
+    box-shadow:
+        10px 10px 20px var(--shadow-dark),
+        -8px -8px 18px var(--shadow-light);
+}
+
+
+.verdict-card {
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.verdict-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 4px;
+    height: 100%;
+
+    background: var(--danger);
+
+    box-shadow: 0 0 15px rgba(255,89,100,.3);
+}
+
+
+.verdict-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    color: var(--muted);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: .1em;
+}
+
+
+.verdict-code {
+    color: var(--dim);
+}
+
+
+.verdict-main {
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+    margin-top: 30px;
+}
+
+
+.risk-orb {
+    width: 92px;
+    height: 92px;
+
+    flex-shrink: 0;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: var(--surface);
+
+    border: 1px solid var(--danger);
+
+    box-shadow:
+        8px 8px 15px #080b09,
+        -5px -5px 10px #202721,
+
+        inset 3px 3px 7px #080b09,
+        inset -3px -3px 7px #202721;
+}
+
+
+.orb-inner {
+    width: 70px;
+    height: 70px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: var(--surface);
+
+    color: var(--danger);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 14px;
+
+    box-shadow:
+        inset 4px 4px 8px #080b09,
+        inset -3px -3px 7px #202721;
+}
+
+
+.verdict-label {
+    font-size: 25px;
+
+    font-weight: 800;
+
+    letter-spacing: -.04em;
+}
+
+
+.risk-level {
+    margin-top: 8px;
+
+    color: var(--muted);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: .1em;
+}
+
+
+.risk-level strong {
+    color: var(--danger);
+}
+
+
+/* =====================================================
+   METRIC
+===================================================== */
+
+.metric-label {
+    color: var(--dim);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: .15em;
+}
+
+
+.metric-value {
+    margin-top: 25px;
+
+    font-size: 40px;
+
+    font-weight: 700;
+
+    letter-spacing: -.06em;
+}
+
+
+.metric-description {
+    margin-top: 3px;
+
+    color: var(--muted);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+}
+
+
+.progress {
+    height: 5px;
+
+    margin-top: 22px;
+
+    border-radius: 5px;
+
+    background: var(--surface-dark);
+
+    box-shadow:
+        inset 2px 2px 5px #080b09,
+        inset -1px -1px 3px #202721;
+}
+
+
+.progress-fill {
+    height: 100%;
+
+    border-radius: 5px;
+
+    background: var(--green);
+
+    box-shadow:
+        0 0 8px rgba(102,255,178,.5);
+}
+
+
+.metric-footer {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 10px;
+
+    color: var(--dim);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+}
+
+
+.metric-footer strong {
+    color: var(--text);
+}
+
+
+/* =====================================================
+   SIGNAL STATS
+===================================================== */
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+    margin-top: 22px;
+}
+
+
+.stats-grid div {
+    padding: 12px;
+
+    border-radius: 8px;
+
+    background: var(--surface-dark);
+
+    box-shadow:
+        inset 3px 3px 6px #080b09,
+        inset -2px -2px 5px #1d251f;
+}
+
+
+.stats-grid strong {
+    display: block;
+
+    font-size: 20px;
+}
+
+
+.stats-grid span {
+    color: var(--dim);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 7px;
+}
+
+
+/* =====================================================
+   REPORT BLOCK
+===================================================== */
+
+.report-block {
+    margin-top: 50px;
+}
+
+
+.block-heading {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding-bottom: 14px;
+
+    border-bottom: 1px solid #222a25;
+
+    margin-bottom: 14px;
+}
+
+
+.block-heading div {
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: .13em;
+}
+
+
+.block-heading div span {
+    color: var(--green);
+
+    margin-right: 10px;
+}
+
+
+.block-heading small {
+    color: var(--dim);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 7px;
+}
+
+
+/* =====================================================
+   REASONS
+===================================================== */
+
+.reasons-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+
+.reason-card {
+    display: flex;
+
+    gap: 17px;
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    background: var(--surface);
+
+    border: 1px solid #222a25;
+
+    box-shadow:
+        7px 7px 14px var(--shadow-dark),
+        -5px -5px 10px var(--shadow-light);
+
+    transition: .2s;
+}
+
+
+.reason-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        10px 10px 18px var(--shadow-dark),
+        -7px -7px 13px var(--shadow-light);
+}
+
+
+.reason-number {
+    color: var(--green);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+}
+
+
+.reason-category {
+    color: var(--dim);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 7px;
+
+    letter-spacing: .12em;
+}
+
+
+.reason-card h3 {
+    margin-top: 5px;
+
+    font-size: 14px;
+}
+
+
+.reason-card p {
+    margin-top: 8px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+
+.evidence {
+    margin-top: 12px;
+
+    padding: 10px;
+
+    border-radius: 7px;
+
+    background: var(--surface-dark);
+
+    border-left: 2px solid var(--green);
+
+    color: var(--muted);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+
+    line-height: 1.5;
+
+    box-shadow:
+        inset 2px 2px 5px #080b09;
+}
+
+
+.evidence span {
+    color: var(--green);
+
+    margin-right: 5px;
+}
+
+
+/* =====================================================
+   URL INTELLIGENCE
+===================================================== */
+
+.url-card {
+    padding: 20px;
+
+    margin-top: 14px;
+
+    border-radius: 12px;
+
+    background: var(--surface);
+
+    border: 1px solid #222a25;
+
+    box-shadow:
+        8px 8px 16px var(--shadow-dark),
+        -6px -6px 12px var(--shadow-light);
+}
+
+
+.url-header {
+    display: flex;
+
+    justify-content: space-between;
+}
+
+
+.url-index {
+    color: var(--green);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+}
+
+
+.url-verdict {
+    color: var(--danger);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+}
+
+
+.url-address {
+    margin-top: 15px;
+
+    padding: 14px;
+
+    border-radius: 8px;
+
+    background: var(--surface-dark);
+
+    color: #a3b3aa;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+
+    word-break: break-all;
+
+    box-shadow:
+        inset 4px 4px 8px #080b09,
+        inset -2px -2px 5px #1b221e;
+}
+
+
+.url-data-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin-top: 14px;
+}
+
+
+.url-stat {
+    padding: 13px;
+
+    border-radius: 8px;
+
+    background: var(--surface);
+
+    box-shadow:
+        inset 3px 3px 6px #080b09,
+        inset -2px -2px 5px #202721;
+}
+
+
+.url-stat span {
+    display: block;
+
+    color: var(--dim);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 7px;
+}
+
+
+.url-stat strong {
+    display: block;
+
+    margin-top: 5px;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   THREAT INTELLIGENCE
+===================================================== */
+
+.threat-intel {
+    margin-top: 14px;
+
+    padding: 15px;
+
+    border-radius: 9px;
+
+    background: var(--surface-dark);
+
+    border-left: 2px solid var(--green);
+
+    box-shadow:
+        inset 4px 4px 8px #080b09;
+}
+
+
+.intel-title {
+    margin-bottom: 9px;
+
+    color: var(--green);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: .12em;
+}
+
+
+.intel-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 5px 0;
+
+    color: var(--muted);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+}
+
+
+.intel-row strong {
+    color: var(--text);
+}
+
+
+/* =====================================================
+   RAW DATA
+===================================================== */
+
+.raw-data {
+    margin-top: 30px;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background: var(--surface);
+
+    box-shadow:
+        6px 6px 12px var(--shadow-dark),
+        -4px -4px 9px var(--shadow-light);
+}
+
+
+.raw-data summary {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 17px;
+
+    cursor: pointer;
+
+    color: var(--muted);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+}
+
+
+.raw-data pre {
+    padding: 20px;
+
+    border-top: 1px solid #222a25;
+
+    max-height: 400px;
+
+    overflow: auto;
+
+    color: #81948a;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+.error-box {
+    margin-top: 14px;
+
+    padding: 13px;
+
+    border-radius: 8px;
+
+    border-left: 3px solid var(--danger);
+
+    background: #171311;
+
+    color: var(--danger);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+
+    box-shadow:
+        5px 5px 10px #080b09,
+        inset 2px 2px 5px rgba(0,0,0,.3);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 25px 5vw;
+
+    margin-top: 30px;
+
+    border-top: 1px solid #222a25;
+
+    color: var(--dim);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 7px;
+
+    letter-spacing: .1em;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        padding: 70px 0;
+    }
+
+    .radar-container {
+        display: none;
+    }
+
+    .verdict-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .navbar {
+        padding: 0 20px;
+    }
+
+    .system-status {
+        display: none;
+    }
+
+    .container {
+        width: 92%;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .analyzer-card {
+        padding: 20px;
+    }
+
+    .card-header {
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .reasons-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .url-data-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    footer {
+        flex-direction: column;
+
+        gap: 8px;
+    }
+}
+
+
+/* ================================
+   TEXT SIZE OVERRIDE
+   ================================ */
+
+/* Main body text */
+body {
+    font-size: 14px;
+}
+
+/* Paragraphs and descriptions */
+p {
+    font-size: 14px;
+}
+
+/* Hero description */
+.hero-description {
+    font-size: 14px;
+}
+
+/* Capability text */
+.capability {
+    font-size: 14px;
+}
+
+/* Card descriptions */
+.card-header p {
+    font-size: 14px;
+}
+
+/* Input / textarea text */
+textarea {
+    font-size: 14px;
+}
+
+/* Text inside analyzer */
+.textarea-top,
+.textarea-bottom {
+    font-size: 14px;
+}
+
+/* Buttons */
+.analyze-btn,
+.clear-btn {
+    font-size: 14px;
+}
+
+/* Status / labels */
+.system-status,
+.version,
+.input-badge,
+.section-number,
+.scan-complete {
+    font-size: 14px;
+}
+
+/* Result text */
+.verdict-label {
+    font-size: 14px;
+}
+
+.risk-level {
+    font-size: 14px;
+}
+
+/* Metric descriptions */
+.metric-label,
+.metric-description,
+.metric-footer {
+    font-size: 14px;
+}
+
+/* Message statistics */
+.stats-grid span {
+    font-size: 14px;
+}
+
+/* Reasons */
+.reason-category,
+.reason-content p,
+.evidence {
+    font-size: 14px;
+}
+
+/* URL investigation */
+.url-index,
+.url-verdict,
+.url-address,
+.url-stat span,
+.url-stat strong {
+    font-size: 14px;
+}
+
+/* Threat intelligence */
+.intel-title,
+.intel-row {
+    font-size: 14px;
+}
+
+/* Raw data */
+.raw-data summary {
+    font-size: 14px;
+}
+
+/* Footer */
+footer {
+    font-size: 14px;
+}

@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Veylix — Phishing Intelligence</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Veylix CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<div class="background-grid"></div>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar">
+
+    <div class="brand">
+
+        <div class="brand-mark">
+            <span>V</span>
+        </div>
+
+        <div>
+
+            <div class="brand-name">
+                VEYLIX
+            </div>
+
+            <div class="brand-sub">
+                THREAT INTELLIGENCE
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="nav-right">
+
+        <div class="system-status">
+
+            <span class="pulse"></span>
+
+            SYSTEM OPERATIONAL
+
+        </div>
+
+        <div class="version">
+            v1.0
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="container">
+
+
+    <!-- =================================================
+         HERO
+    ================================================== -->
+
+    <section class="hero">
+
+
+        <div class="hero-left">
+
+
+            <div class="eyebrow">
+
+                <span class="eyebrow-line"></span>
+
+                AI SECURITY ANALYSIS
+
+            </div>
+
+
+            <h1>
+
+                Don't trust the message.<br>
+
+                <span>
+                    Investigate it.
+                </span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                Veylix dissects suspicious messages using
+                machine learning, URL intelligence, DNS
+                investigation and threat reputation signals
+                to uncover phishing attempts.
+
+            </p>
+
+
+            <div class="capabilities">
+
+
+                <div class="capability">
+
+                    <span>01</span>
+
+                    ML DETECTION
+
+                </div>
+
+
+                <div class="capability">
+
+                    <span>02</span>
+
+                    URL ANALYSIS
+
+                </div>
+
+
+                <div class="capability">
+
+                    <span>03</span>
+
+                    DNS INTEL
+
+                </div>
+
+
+                <div class="capability">
+
+                    <span>04</span>
+
+                    THREAT REPUTATION
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             RADAR
+        ================================================== -->
+
+        <div class="radar-container">
+
+
+            <div class="radar">
+
+
+                <div class="radar-ring ring-one"></div>
+
+                <div class="radar-ring ring-two"></div>
+
+                <div class="radar-ring ring-three"></div>
+
+
+                <div class="radar-cross horizontal"></div>
+
+                <div class="radar-cross vertical"></div>
+
+
+                <div class="radar-sweep"></div>
+
+
+                <div class="radar-point point-one"></div>
+
+                <div class="radar-point point-two"></div>
+
+                <div class="radar-point point-three"></div>
+
+
+                <div class="radar-center">
+
+                    <span>
+                        SCAN
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="radar-label">
+
+                THREAT<br>
+
+                <strong>
+                    RADAR
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         MESSAGE ANALYZER
+    ================================================== -->
+
+    <section class="analyzer-card">
+
+
+        <div class="card-header">
+
+
+            <div>
+
+                <div class="section-number">
+                    01 / INPUT
+                </div>
+
+
+                <h2>
+                    Message Investigation
+                </h2>
+
+
+                <p>
+                    Paste the suspicious message below.
+                </p>
+
+            </div>
+
+
+            <div class="input-badge">
+
+                EMAIL / SMS / CHAT
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- FORM -->
+
+        <form method="POST"
+              id="analysisForm">
+
+
+            <!-- MESSAGE INPUT -->
+
+            <div class="textarea-wrapper">
+
+
+                <div class="textarea-top">
+
+                    <span>
+                        MESSAGE PAYLOAD
+                    </span>
+
+
+                    <span id="charCount">
+
+                        0 CHARACTERS
+
+                    </span>
+
+                </div>
+
+
+
+                <textarea
+                    name="message"
+                    id="messageInput"
+                    placeholder="Paste suspicious email, SMS, WhatsApp or Telegram message here..."
+                    required>{{ message }}</textarea>
+
+
+
+                <div class="textarea-bottom">
+
+                    <span>
+
+                        Veylix will extract URLs and analyze
+                        embedded indicators.
+
+                    </span>
+
+
+                    <span class="secure-input">
+
+                        ● SECURE INPUT
+
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ERROR -->
+
+            {% if error %}
+
+            <div class="error-box">
+
+                <span>!</span>
+
+                {{ error }}
+
+            </div>
+
+            {% endif %}
+
+
+
+            <!-- ACTIONS -->
+
+            <div class="action-row">
+
+
+                <button
+                    type="submit"
+                    class="analyze-btn"
+                    id="analyzeBtn">
+
+
+                    <span class="btn-icon">
+                        ↗
+                    </span>
+
+
+                    <span id="btnText">
+                        ANALYZE MESSAGE
+                    </span>
+
+
+                    <span class="btn-arrow">
+                        →
+                    </span>
+
+
+                </button>
+
+
+
+                <a
+                    href="{{ url_for('home') }}"
+                    class="clear-btn">
+
+                    CLEAR
+
+                </a>
+
+
+            </div>
+
+
+        </form>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         LOADING
+    ================================================== -->
+
+    <div
+        class="loading-panel"
+        id="loadingPanel">
+
+
+        <div class="loader"></div>
+
+
+        <div>
+
+            <strong>
+                INVESTIGATION IN PROGRESS
+            </strong>
+
+
+            <p id="loadingText">
+
+                Extracting security indicators...
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         RESULTS
+    ================================================== -->
+
+    {% if result %}
+
+
+    <section class="results-section">
+
+
+        <!-- RESULTS HEADER -->
+
+        <div class="results-header">
+
+
+            <div>
+
+                <div class="section-number">
+                    02 / FINDINGS
+                </div>
+
+
+                <h2>
+                    Investigation Report
+                </h2>
+
+            </div>
+
+
+            <div class="scan-complete">
+
+                <span class="pulse"></span>
+
+                ANALYSIS COMPLETE
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             PREPARE DATA
+        ================================================== -->
+
+        {% set risk =
+            result.get('risk_level', 'UNKNOWN')
+        %}
+
+
+        {% set score =
+            result.get(
+                'risk_score',
+                result.get(
+                    'final_risk_score',
+                    0
+                )
+            )
+        %}
+
+
+        {% set message_model =
+            result.get(
+                'message_model',
+                {}
+            )
+        %}
+
+
+        {% set analysis =
+            result.get(
+                'message_analysis',
+                {}
+            )
+        %}
+
+
+
+        <!-- =================================================
+             VERDICT GRID
+        ================================================== -->
+
+        <div class="verdict-grid">
+
+
+            <!-- FINAL VERDICT -->
+
+            <div class="verdict-card
+                {% if risk|lower == 'critical' %}
+                    critical
+                {% elif risk|lower == 'high' %}
+                    high
+                {% elif risk|lower == 'medium' %}
+                    medium
+                {% else %}
+                    low
+                {% endif %}
+            ">
+
+
+                <div class="verdict-top">
+
+                    <span>
+                        FINAL VERDICT
+                    </span>
+
+
+                    <span class="verdict-code">
+
+                        VX-{{ "%04d"|format(score|int) }}
+
+                    </span>
+
+                </div>
+
+
+
+                <div class="verdict-main">
+
+
+                    <div class="risk-orb">
+
+                        <div class="orb-inner">
+
+                            {{ score }}%
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div>
+
+                        <div class="verdict-label">
+
+                            {{ result.get(
+                                'verdict',
+                                'UNKNOWN'
+                            ) }}
+
+                        </div>
+
+
+                        <div class="risk-level">
+
+                            RISK LEVEL:
+
+                            <strong>
+
+                                {{ risk }}
+
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ML MODEL
+            ================================================== -->
+
+            <div class="metric-card">
+
+
+                <div class="metric-label">
+
+                    MESSAGE MODEL
+
+                </div>
+
+
+                <div class="metric-value">
+
+                    {{ message_model.get(
+                        'phishing_probability',
+                        0
+                    ) }}%
+
+                </div>
+
+
+                <div class="metric-description">
+
+                    PHISHING PROBABILITY
+
+                </div>
+
+
+                <div class="progress">
+
+                    <div
+                        class="progress-fill"
+                        style="width:
+                        {{ message_model.get(
+                            'phishing_probability',
+                            0
+                        ) }}%">
+                    </div>
+
+                </div>
+
+
+                <div class="metric-footer">
+
+                    <span>
+                        LEGITIMATE
+                    </span>
+
+
+                    <strong>
+
+                        {{ message_model.get(
+                            'legitimate_probability',
+                            0
+                        ) }}%
+
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 MESSAGE SIGNALS
+            ================================================== -->
+
+            <div class="metric-card stats-card">
+
+
+                <div class="metric-label">
+
+                    MESSAGE SIGNALS
+
+                </div>
+
+
+                <div class="stats-grid">
+
+
+                    <div>
+
+                        <strong>
+
+                            {{ analysis.get(
+                                'message_length',
+                                0
+                            ) }}
+
+                        </strong>
+
+                        <span>
+                            CHARACTERS
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+
+                            {{ analysis.get(
+                                'url_count',
+                                0
+                            ) }}
+
+                        </strong>
+
+                        <span>
+                            URLS
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+
+                            {{ analysis.get(
+                                'urgency_terms',
+                                0
+                            ) }}
+
+                        </strong>
+
+                        <span>
+                            URGENCY
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+
+                            {{ analysis.get(
+                                'credential_terms',
+                                0
+                            ) }}
+
+                        </strong>
+
+                        <span>
+                            CREDENTIALS
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             REASONS
+        ================================================== -->
+
+        {% set reasons =
+            result.get(
+                'reasons',
+                []
+            )
+        %}
+
+
+        {% if reasons %}
+
+
+        <div class="report-block">
+
+
+            <div class="block-heading">
+
+
+                <div>
+
+                    <span>
+                        03
+                    </span>
+
+                    WHY VEYLIX FLAGGED IT
+
+                </div>
+
+
+                <small>
+                    EVIDENCE-BASED SIGNALS
+                </small>
+
+
+            </div>
+
+
+
+            <div class="reasons-grid">
+
+
+                {% for reason in reasons %}
+
+
+                <div class="reason-card">
+
+
+                    <div class="reason-number">
+
+                        {{ "%02d"|format(
+                            loop.index
+                        ) }}
+
+                    </div>
+
+
+                    <div class="reason-content">
+
+
+                        <div class="reason-category">
+
+                            {{ reason.get(
+                                'category',
+                                'SIGNAL'
+                            ) }}
+
+                        </div>
+
+
+                        <h3>
+
+                            {{ reason.get(
+                                'factor',
+                                'Suspicious indicator'
+                            ) }}
+
+                        </h3>
+
+
+                        <p>
+
+                            {{ reason.get(
+                                'explanation',
+                                ''
+                            ) }}
+
+                        </p>
+
+
+                        {% if reason.get('evidence') %}
+
+
+                        <div class="evidence">
+
+                            <span>
+                                ›
+                            </span>
+
+                            {{ reason.get(
+                                'evidence'
+                            ) }}
+
+                        </div>
+
+
+                        {% endif %}
+
+
+                    </div>
+
+
+                </div>
+
+
+                {% endfor %}
+
+
+            </div>
+
+
+        </div>
+
+
+        {% endif %}
+
+
+
+        <!-- =================================================
+             URL INTELLIGENCE
+        ================================================== -->
+
+        {% set urls =
+            result.get(
+                'urls',
+                []
+            )
+        %}
+
+
+        {% if urls %}
+
+
+        <div class="report-block">
+
+
+            <div class="block-heading">
+
+
+                <div>
+
+                    <span>
+                        04
+                    </span>
+
+                    URL INTELLIGENCE
+
+                </div>
+
+
+                <small>
+
+                    {{ urls|length }}
+
+                    INDICATOR(S)
+
+                </small>
+
+
+            </div>
+
+
+
+            {% for item in urls %}
+
+
+            {% set ml =
+                item.get(
+                    'machine_learning',
+                    {}
+                )
+            %}
+
+
+            {% set url_analysis =
+                ml.get(
+                    'analysis',
+                    {}
+                )
+            %}
+
+
+            {% set metadata =
+                url_analysis.get(
+                    'metadata',
+                    {}
+                )
+            %}
+
+
+            {% set dns =
+                item.get(
+                    'dns',
+                    {}
+                )
+            %}
+
+
+            {% set ti =
+                item.get(
+                    'threat_intelligence',
+                    {}
+                )
+            %}
+
+
+
+            <!-- URL CARD -->
+
+            <div class="url-card">
+
+
+                <div class="url-header">
+
+
+                    <div class="url-index">
+
+                        URL
+                        {{ "%02d"|format(
+                            loop.index
+                        ) }}
+
+                    </div>
+
+
+                    <div class="url-verdict">
+
+                        {{ ml.get(
+                            'prediction',
+                            'UNKNOWN'
+                        ) }}
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="url-address">
+
+                    {{ item.get(
+                        'url',
+                        'Unknown URL'
+                    ) }}
+
+                </div>
+
+
+
+                <!-- URL DATA -->
+
+                <div class="url-data-grid">
+
+
+                    <div class="url-stat">
+
+                        <span>
+                            ML PHISHING PROBABILITY
+                        </span>
+
+
+                        <strong>
+
+                            {{ ml.get(
+                                'phishing_probability',
+                                0
+                            ) }}%
+
+                        </strong>
+
+                    </div>
+
+
+
+                    <div class="url-stat">
+
+                        <span>
+                            HTTPS
+                        </span>
+
+
+                        <strong>
+
+                            {% if metadata.get(
+                                'is_https'
+                            ) %}
+
+                                YES
+
+                            {% else %}
+
+                                NO
+
+                            {% endif %}
+
+                        </strong>
+
+                    </div>
+
+
+
+                    <div class="url-stat">
+
+                        <span>
+                            IP ADDRESS
+                        </span>
+
+
+                        <strong>
+
+                            {% if metadata.get(
+                                'is_ip'
+                            ) %}
+
+                                YES
+
+                            {% else %}
+
+                                NO
+
+                            {% endif %}
+
+                        </strong>
+
+                    </div>
+
+
+
+                    <div class="url-stat">
+
+                        <span>
+                            DOMAIN AGE
+                        </span>
+
+
+                        <strong>
+
+                            {{ dns.get(
+                                'domain_age_days',
+                                'N/A'
+                            ) }}
+
+                        </strong>
+
+                    </div>
+
+
+
+                    <div class="url-stat">
+
+                        <span>
+                            A RECORDS
+                        </span>
+
+
+                        <strong>
+
+                            {{ dns.get(
+                                'a_records',
+                                []
+                            )|length }}
+
+                        </strong>
+
+                    </div>
+
+
+
+                    <div class="url-stat">
+
+                        <span>
+                            BLACKLISTED
+                        </span>
+
+
+                        <strong>
+
+                            {% if ti.get(
+                                'is_blacklisted'
+                            ) %}
+
+                                YES
+
+                            {% else %}
+
+                                NO
+
+                            {% endif %}
+
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- THREAT INTELLIGENCE -->
+
+                {% if ti %}
+
+
+                <div class="threat-intel">
+
+
+                    <div class="intel-title">
+
+                        THREAT INTELLIGENCE
+
+                    </div>
+
+
+                    <div class="intel-row">
+
+                        <span>
+                            Reputation Score
+                        </span>
+
+
+                        <strong>
+
+                            {{ ti.get(
+                                'reputation_score',
+                                'N/A'
+                            ) }}
+
+                        </strong>
+
+                    </div>
+
+
+                    <div class="intel-row">
+
+                        <span>
+                            Reports
+                        </span>
+
+
+                        <strong>
+
+                            {{ ti.get(
+                                'report_count',
+                                0
+                            ) }}
+
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+                {% endif %}
+
+
+            </div>
+
+
+            {% endfor %}
+
+
+        </div>
+
+
+        {% endif %}
+
+
+
+        <!-- =================================================
+             RAW RESPONSE
+        ================================================== -->
+
+        <details class="raw-data">
+
+
+            <summary>
+
+                <span>
+                    SYSTEM RESPONSE / RAW DATA
+                </span>
+
+
+                <span>
+                    +
+                </span>
+
+            </summary>
+
+
+            <pre>{{ result | tojson(indent=2) }}</pre>
+
+
+        </details>
+
+
+    </section>
+
+
+    {% endif %}
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+
+    <div>
+
+        VEYLIX /
+
+        PHISHING INTELLIGENCE PLATFORM
+
+    </div>
+
+
+    <div>
+
+        MACHINE LEARNING × SECURITY INTELLIGENCE
+
+    </div>
+
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   CHARACTER COUNTER
+===================================================== */
+
+const textarea =
+    document.getElementById(
+        "messageInput"
+    );
+
+
+const counter =
+    document.getElementById(
+        "charCount"
+    );
+
+
+if (textarea && counter) {
+
+
+    function updateCounter() {
+
+        counter.textContent =
+            textarea.value.length +
+            " CHARACTERS";
+
+    }
+
+
+    textarea.addEventListener(
+        "input",
+        updateCounter
+    );
+
+
+    updateCounter();
+
+}
+
+
+
+/* =====================================================
+   ANALYSIS LOADING
+===================================================== */
+
+const form =
+    document.getElementById(
+        "analysisForm"
+    );
+
+
+const loadingPanel =
+    document.getElementById(
+        "loadingPanel"
+    );
+
+
+const loadingText =
+    document.getElementById(
+        "loadingText"
+    );
+
+
+const analyzeBtn =
+    document.getElementById(
+        "analyzeBtn"
+    );
+
+
+const btnText =
+    document.getElementById(
+        "btnText"
+    );
+
+
+if (form) {
+
+
+    form.addEventListener(
+        "submit",
+        function () {
+
+
+            if (loadingPanel) {
+
+                loadingPanel.classList.add(
+                    "active"
+                );
+
+            }
+
+
+            if (analyzeBtn) {
+
+                analyzeBtn.disabled = true;
+
+            }
+
+
+            if (btnText) {
+
+                btnText.textContent =
+                    "ANALYZING...";
+
+            }
+
+
+            const stages = [
+
+                "Extracting security indicators...",
+
+                "Running ML phishing detection...",
+
+                "Investigating embedded URLs...",
+
+                "Checking DNS intelligence...",
+
+                "Querying threat reputation...",
+
+                "Building evidence-backed verdict..."
+
+            ];
+
+
+            let index = 0;
+
+
+            setInterval(
+                function () {
+
+
+                    if (
+                        index <
+                        stages.length &&
+                        loadingText
+                    ) {
+
+                        loadingText.textContent =
+                            stages[index];
+
+                        index++;
+
+                    }
+
+
+                },
+                900
+            );
+
+
+        }
+    );
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
