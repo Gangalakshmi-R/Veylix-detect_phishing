@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,16 +28,9 @@
 
 </head>
 
-
 <body>
 
-
-<!-- =====================================================
-     BACKGROUND
-===================================================== -->
-
 <div class="background-grid"></div>
-
 
 <!-- =====================================================
      NAVBAR
@@ -64,15 +58,11 @@
 
     </div>
 
-
     <div class="nav-right">
 
         <div class="system-status">
-
             <span class="pulse"></span>
-
             SYSTEM OPERATIONAL
-
         </div>
 
         <div class="version">
@@ -84,23 +74,17 @@
 </nav>
 
 
-
 <!-- =====================================================
      MAIN
 ===================================================== -->
 
 <main class="container">
 
-
-    <!-- =================================================
-         HERO
-    ================================================== -->
+    <!-- HERO -->
 
     <section class="hero">
 
-
         <div class="hero-left">
-
 
             <div class="eyebrow">
 
@@ -109,7 +93,6 @@
                 AI SECURITY ANALYSIS
 
             </div>
-
 
             <h1>
 
@@ -121,7 +104,6 @@
 
             </h1>
 
-
             <p class="hero-description">
 
                 Veylix dissects suspicious messages using
@@ -131,113 +113,66 @@
 
             </p>
 
-
             <div class="capabilities">
 
-
                 <div class="capability">
-
                     <span>01</span>
-
                     ML DETECTION
-
                 </div>
 
-
                 <div class="capability">
-
                     <span>02</span>
-
                     URL ANALYSIS
-
                 </div>
 
-
                 <div class="capability">
-
                     <span>03</span>
-
                     DNS INTEL
-
                 </div>
-
 
                 <div class="capability">
-
                     <span>04</span>
-
                     THREAT REPUTATION
-
                 </div>
-
 
             </div>
-
 
         </div>
 
 
-
-        <!-- =================================================
-             RADAR
-        ================================================== -->
+        <!-- RADAR -->
 
         <div class="radar-container">
 
-
             <div class="radar">
 
-
                 <div class="radar-ring ring-one"></div>
-
                 <div class="radar-ring ring-two"></div>
-
                 <div class="radar-ring ring-three"></div>
 
-
                 <div class="radar-cross horizontal"></div>
-
                 <div class="radar-cross vertical"></div>
-
 
                 <div class="radar-sweep"></div>
 
-
                 <div class="radar-point point-one"></div>
-
                 <div class="radar-point point-two"></div>
-
                 <div class="radar-point point-three"></div>
 
-
                 <div class="radar-center">
-
-                    <span>
-                        SCAN
-                    </span>
-
+                    <span>SCAN</span>
                 </div>
 
-
             </div>
-
 
             <div class="radar-label">
-
                 THREAT<br>
-
-                <strong>
-                    RADAR
-                </strong>
-
+                <strong>RADAR</strong>
             </div>
-
 
         </div>
 
-
     </section>
-
 
 
     <!-- =================================================
@@ -246,9 +181,7 @@
 
     <section class="analyzer-card">
 
-
         <div class="card-header">
-
 
             <div>
 
@@ -256,11 +189,9 @@
                     01 / INPUT
                 </div>
 
-
                 <h2>
                     Message Investigation
                 </h2>
-
 
                 <p>
                     Paste the suspicious message below.
@@ -268,16 +199,11 @@
 
             </div>
 
-
             <div class="input-badge">
-
                 EMAIL / SMS / CHAT
-
             </div>
 
-
         </div>
-
 
 
         <!-- FORM -->
@@ -285,11 +211,7 @@
         <form method="POST"
               id="analysisForm">
 
-
-            <!-- MESSAGE INPUT -->
-
             <div class="textarea-wrapper">
-
 
                 <div class="textarea-top">
 
@@ -297,46 +219,32 @@
                         MESSAGE PAYLOAD
                     </span>
 
-
                     <span id="charCount">
-
                         0 CHARACTERS
-
                     </span>
 
                 </div>
-
-
 
                 <textarea
                     name="message"
                     id="messageInput"
                     placeholder="Paste suspicious email, SMS, WhatsApp or Telegram message here..."
-                    required>{{ message }}</textarea>
-
-
+                    required>{{ message or '' }}</textarea>
 
                 <div class="textarea-bottom">
 
                     <span>
-
                         Veylix will extract URLs and analyze
                         embedded indicators.
-
                     </span>
 
-
                     <span class="secure-input">
-
                         ● SECURE INPUT
-
                     </span>
 
                 </div>
 
-
             </div>
-
 
 
             <!-- ERROR -->
@@ -354,36 +262,28 @@
             {% endif %}
 
 
-
             <!-- ACTIONS -->
 
             <div class="action-row">
-
 
                 <button
                     type="submit"
                     class="analyze-btn"
                     id="analyzeBtn">
 
-
                     <span class="btn-icon">
                         ↗
                     </span>
-
 
                     <span id="btnText">
                         ANALYZE MESSAGE
                     </span>
 
-
                     <span class="btn-arrow">
                         →
                     </span>
 
-
                 </button>
-
-
 
                 <a
                     href="{{ url_for('home') }}"
@@ -393,15 +293,11 @@
 
                 </a>
 
-
             </div>
-
 
         </form>
 
-
     </section>
-
 
 
     <!-- =================================================
@@ -412,9 +308,7 @@
         class="loading-panel"
         id="loadingPanel">
 
-
         <div class="loader"></div>
-
 
         <div>
 
@@ -422,18 +316,13 @@
                 INVESTIGATION IN PROGRESS
             </strong>
 
-
             <p id="loadingText">
-
                 Extracting security indicators...
-
             </p>
 
         </div>
 
-
     </div>
-
 
 
     <!-- =================================================
@@ -442,14 +331,9 @@
 
     {% if result %}
 
-
     <section class="results-section">
 
-
-        <!-- RESULTS HEADER -->
-
         <div class="results-header">
-
 
             <div>
 
@@ -457,13 +341,11 @@
                     02 / FINDINGS
                 </div>
 
-
                 <h2>
                     Investigation Report
                 </h2>
 
             </div>
-
 
             <div class="scan-complete">
 
@@ -473,51 +355,34 @@
 
             </div>
 
-
         </div>
-
 
 
         <!-- =================================================
              PREPARE DATA
-        ================================================== -->
+        ================================================= -->
 
-        {% set risk =
-            result.get('risk_level', 'UNKNOWN')
-        %}
+        {% set risk = result.get('risk_level', 'UNKNOWN') %}
 
+        {% set score = result.get(
+            'risk_score',
+            result.get('final_risk_score', 0)
+        ) %}
 
-        {% set score =
-            result.get(
-                'risk_score',
-                result.get(
-                    'final_risk_score',
-                    0
-                )
-            )
-        %}
+        {% set message_model = result.get(
+            'message_model',
+            {}
+        ) %}
 
-
-        {% set message_model =
-            result.get(
-                'message_model',
-                {}
-            )
-        %}
-
-
-        {% set analysis =
-            result.get(
-                'message_analysis',
-                {}
-            )
-        %}
-
+        {% set analysis = result.get(
+            'message_analysis',
+            {}
+        ) %}
 
 
         <!-- =================================================
              VERDICT GRID
-        ================================================== -->
+        ================================================= -->
 
         <div class="verdict-grid">
 
@@ -536,26 +401,20 @@
                 {% endif %}
             ">
 
-
                 <div class="verdict-top">
 
                     <span>
                         FINAL VERDICT
                     </span>
 
-
                     <span class="verdict-code">
-
                         VX-{{ "%04d"|format(score|int) }}
-
                     </span>
 
                 </div>
 
 
-
                 <div class="verdict-main">
-
 
                     <div class="risk-orb">
 
@@ -566,7 +425,6 @@
                         </div>
 
                     </div>
-
 
 
                     <div>
@@ -580,73 +438,64 @@
 
                         </div>
 
-
                         <div class="risk-level">
 
                             RISK LEVEL:
 
                             <strong>
-
                                 {{ risk }}
-
                             </strong>
 
                         </div>
 
                     </div>
 
-
                 </div>
-
 
             </div>
 
 
-
-            <!-- =================================================
-                 ML MODEL
-            ================================================== -->
+            <!-- MESSAGE MODEL -->
 
             <div class="metric-card">
 
-
                 <div class="metric-label">
-
                     MESSAGE MODEL
-
                 </div>
 
+                {% set phishing_probability =
+                    message_model.get(
+                        'phishing_probability',
+                        0
+                    )|float
+                %}
+
+                {% set legitimate_probability =
+                    message_model.get(
+                        'legitimate_probability',
+                        0
+                    )|float
+                %}
 
                 <div class="metric-value">
 
-                    {{ message_model.get(
-                        'phishing_probability',
-                        0
-                    ) }}%
+                    {{ phishing_probability }}%
 
                 </div>
-
 
                 <div class="metric-description">
-
                     PHISHING PROBABILITY
-
                 </div>
 
-
+                <!-- FIXED JINJA -->
                 <div class="progress">
 
                     <div
                         class="progress-fill"
-                        style="width:
-                        {{ message_model.get(
-                            'phishing_probability',
-                            0
-                        ) }}%">
+                        style="width: {{ phishing_probability }}%;">
                     </div>
 
                 </div>
-
 
                 <div class="metric-footer">
 
@@ -654,49 +503,32 @@
                         LEGITIMATE
                     </span>
 
-
                     <strong>
-
-                        {{ message_model.get(
-                            'legitimate_probability',
-                            0
-                        ) }}%
-
+                        {{ legitimate_probability }}%
                     </strong>
 
                 </div>
 
-
             </div>
 
 
-
-            <!-- =================================================
-                 MESSAGE SIGNALS
-            ================================================== -->
+            <!-- MESSAGE SIGNALS -->
 
             <div class="metric-card stats-card">
 
-
                 <div class="metric-label">
-
                     MESSAGE SIGNALS
-
                 </div>
 
-
                 <div class="stats-grid">
-
 
                     <div>
 
                         <strong>
-
                             {{ analysis.get(
                                 'message_length',
                                 0
                             ) }}
-
                         </strong>
 
                         <span>
@@ -705,16 +537,13 @@
 
                     </div>
 
-
                     <div>
 
                         <strong>
-
                             {{ analysis.get(
                                 'url_count',
                                 0
                             ) }}
-
                         </strong>
 
                         <span>
@@ -723,16 +552,13 @@
 
                     </div>
 
-
                     <div>
 
                         <strong>
-
                             {{ analysis.get(
                                 'urgency_terms',
                                 0
                             ) }}
-
                         </strong>
 
                         <span>
@@ -741,16 +567,13 @@
 
                     </div>
 
-
                     <div>
 
                         <strong>
-
                             {{ analysis.get(
                                 'credential_terms',
                                 0
                             ) }}
-
                         </strong>
 
                         <span>
@@ -759,78 +582,51 @@
 
                     </div>
 
-
                 </div>
-
 
             </div>
 
-
         </div>
-
 
 
         <!-- =================================================
              REASONS
         ================================================== -->
 
-        {% set reasons =
-            result.get(
-                'reasons',
-                []
-            )
-        %}
-
+        {% set reasons = result.get('reasons', []) %}
 
         {% if reasons %}
 
-
         <div class="report-block">
-
 
             <div class="block-heading">
 
-
                 <div>
 
-                    <span>
-                        03
-                    </span>
+                    <span>03</span>
 
                     WHY VEYLIX FLAGGED IT
 
                 </div>
 
-
                 <small>
                     EVIDENCE-BASED SIGNALS
                 </small>
 
-
             </div>
-
 
 
             <div class="reasons-grid">
 
-
                 {% for reason in reasons %}
-
 
                 <div class="reason-card">
 
-
                     <div class="reason-number">
-
-                        {{ "%02d"|format(
-                            loop.index
-                        ) }}
-
+                        {{ "%02d"|format(loop.index) }}
                     </div>
 
-
                     <div class="reason-content">
-
 
                         <div class="reason-category">
 
@@ -841,7 +637,6 @@
 
                         </div>
 
-
                         <h3>
 
                             {{ reason.get(
@@ -850,7 +645,6 @@
                             ) }}
 
                         </h3>
-
 
                         <p>
 
@@ -864,148 +658,96 @@
 
                         {% if reason.get('evidence') %}
 
-
                         <div class="evidence">
 
-                            <span>
-                                ›
-                            </span>
+                            <span>›</span>
 
-                            {{ reason.get(
-                                'evidence'
-                            ) }}
+                            {{ reason.get('evidence') }}
 
                         </div>
 
-
                         {% endif %}
-
 
                     </div>
 
-
                 </div>
-
 
                 {% endfor %}
 
-
             </div>
-
 
         </div>
 
-
         {% endif %}
-
 
 
         <!-- =================================================
              URL INTELLIGENCE
         ================================================== -->
 
-        {% set urls =
-            result.get(
-                'urls',
-                []
-            )
-        %}
-
+        {% set urls = result.get('urls', []) %}
 
         {% if urls %}
 
-
         <div class="report-block">
-
 
             <div class="block-heading">
 
-
                 <div>
 
-                    <span>
-                        04
-                    </span>
+                    <span>04</span>
 
                     URL INTELLIGENCE
 
                 </div>
 
-
                 <small>
-
-                    {{ urls|length }}
-
-                    INDICATOR(S)
-
+                    {{ urls|length }} INDICATOR(S)
                 </small>
-
 
             </div>
 
 
-
             {% for item in urls %}
 
+            {% set ml = item.get(
+                'machine_learning',
+                {}
+            ) %}
 
-            {% set ml =
-                item.get(
-                    'machine_learning',
-                    {}
-                )
-            %}
+            {% set url_analysis = ml.get(
+                'analysis',
+                {}
+            ) %}
 
+            {% set metadata = url_analysis.get(
+                'metadata',
+                {}
+            ) %}
 
-            {% set url_analysis =
-                ml.get(
-                    'analysis',
-                    {}
-                )
-            %}
+            {% set dns = item.get(
+                'dns',
+                {}
+            ) %}
 
-
-            {% set metadata =
-                url_analysis.get(
-                    'metadata',
-                    {}
-                )
-            %}
-
-
-            {% set dns =
-                item.get(
-                    'dns',
-                    {}
-                )
-            %}
-
-
-            {% set ti =
-                item.get(
-                    'threat_intelligence',
-                    {}
-                )
-            %}
-
+            {% set ti = item.get(
+                'threat_intelligence',
+                {}
+            ) %}
 
 
             <!-- URL CARD -->
 
             <div class="url-card">
 
-
                 <div class="url-header">
-
 
                     <div class="url-index">
 
                         URL
-                        {{ "%02d"|format(
-                            loop.index
-                        ) }}
+                        {{ "%02d"|format(loop.index) }}
 
                     </div>
-
 
                     <div class="url-verdict">
 
@@ -1016,9 +758,7 @@
 
                     </div>
 
-
                 </div>
-
 
 
                 <div class="url-address">
@@ -1031,18 +771,15 @@
                 </div>
 
 
-
                 <!-- URL DATA -->
 
                 <div class="url-data-grid">
-
 
                     <div class="url-stat">
 
                         <span>
                             ML PHISHING PROBABILITY
                         </span>
-
 
                         <strong>
 
@@ -1056,32 +793,23 @@
                     </div>
 
 
-
                     <div class="url-stat">
 
                         <span>
                             HTTPS
                         </span>
 
-
                         <strong>
 
-                            {% if metadata.get(
-                                'is_https'
-                            ) %}
-
+                            {% if metadata.get('is_https') %}
                                 YES
-
                             {% else %}
-
                                 NO
-
                             {% endif %}
 
                         </strong>
 
                     </div>
-
 
 
                     <div class="url-stat">
@@ -1090,19 +818,12 @@
                             IP ADDRESS
                         </span>
 
-
                         <strong>
 
-                            {% if metadata.get(
-                                'is_ip'
-                            ) %}
-
+                            {% if metadata.get('is_ip') %}
                                 YES
-
                             {% else %}
-
                                 NO
-
                             {% endif %}
 
                         </strong>
@@ -1110,13 +831,11 @@
                     </div>
 
 
-
                     <div class="url-stat">
 
                         <span>
                             DOMAIN AGE
                         </span>
-
 
                         <strong>
 
@@ -1130,13 +849,11 @@
                     </div>
 
 
-
                     <div class="url-stat">
 
                         <span>
                             A RECORDS
                         </span>
-
 
                         <strong>
 
@@ -1150,58 +867,42 @@
                     </div>
 
 
-
                     <div class="url-stat">
 
                         <span>
                             BLACKLISTED
                         </span>
 
-
                         <strong>
 
-                            {% if ti.get(
-                                'is_blacklisted'
-                            ) %}
-
+                            {% if ti.get('is_blacklisted') %}
                                 YES
-
                             {% else %}
-
                                 NO
-
                             {% endif %}
 
                         </strong>
 
                     </div>
 
-
                 </div>
-
 
 
                 <!-- THREAT INTELLIGENCE -->
 
                 {% if ti %}
 
-
                 <div class="threat-intel">
 
-
                     <div class="intel-title">
-
                         THREAT INTELLIGENCE
-
                     </div>
-
 
                     <div class="intel-row">
 
                         <span>
                             Reputation Score
                         </span>
-
 
                         <strong>
 
@@ -1214,13 +915,11 @@
 
                     </div>
 
-
                     <div class="intel-row">
 
                         <span>
                             Reports
                         </span>
-
 
                         <strong>
 
@@ -1233,24 +932,17 @@
 
                     </div>
 
-
                 </div>
-
 
                 {% endif %}
 
-
             </div>
-
 
             {% endfor %}
 
-
         </div>
 
-
         {% endif %}
-
 
 
         <!-- =================================================
@@ -1259,13 +951,11 @@
 
         <details class="raw-data">
 
-
             <summary>
 
                 <span>
                     SYSTEM RESPONSE / RAW DATA
                 </span>
-
 
                 <span>
                     +
@@ -1273,21 +963,15 @@
 
             </summary>
 
-
             <pre>{{ result | tojson(indent=2) }}</pre>
-
 
         </details>
 
-
     </section>
-
 
     {% endif %}
 
-
 </main>
-
 
 
 <!-- =====================================================
@@ -1296,25 +980,15 @@
 
 <footer>
 
-
     <div>
-
-        VEYLIX /
-
-        PHISHING INTELLIGENCE PLATFORM
-
+        VEYLIX / PHISHING INTELLIGENCE PLATFORM
     </div>
 
-
     <div>
-
         MACHINE LEARNING × SECURITY INTELLIGENCE
-
     </div>
-
 
 </footer>
-
 
 
 <!-- =====================================================
@@ -1323,25 +997,17 @@
 
 <script>
 
-
 /* =====================================================
    CHARACTER COUNTER
 ===================================================== */
 
 const textarea =
-    document.getElementById(
-        "messageInput"
-    );
-
+    document.getElementById("messageInput");
 
 const counter =
-    document.getElementById(
-        "charCount"
-    );
-
+    document.getElementById("charCount");
 
 if (textarea && counter) {
-
 
     function updateCounter() {
 
@@ -1351,17 +1017,13 @@ if (textarea && counter) {
 
     }
 
-
     textarea.addEventListener(
         "input",
         updateCounter
     );
 
-
     updateCounter();
-
 }
-
 
 
 /* =====================================================
@@ -1369,42 +1031,26 @@ if (textarea && counter) {
 ===================================================== */
 
 const form =
-    document.getElementById(
-        "analysisForm"
-    );
-
+    document.getElementById("analysisForm");
 
 const loadingPanel =
-    document.getElementById(
-        "loadingPanel"
-    );
-
+    document.getElementById("loadingPanel");
 
 const loadingText =
-    document.getElementById(
-        "loadingText"
-    );
-
+    document.getElementById("loadingText");
 
 const analyzeBtn =
-    document.getElementById(
-        "analyzeBtn"
-    );
-
+    document.getElementById("analyzeBtn");
 
 const btnText =
-    document.getElementById(
-        "btnText"
-    );
+    document.getElementById("btnText");
 
 
 if (form) {
 
-
     form.addEventListener(
         "submit",
         function () {
-
 
             if (loadingPanel) {
 
@@ -1414,13 +1060,11 @@ if (form) {
 
             }
 
-
             if (analyzeBtn) {
 
                 analyzeBtn.disabled = true;
 
             }
-
 
             if (btnText) {
 
@@ -1450,13 +1094,11 @@ if (form) {
             let index = 0;
 
 
-            setInterval(
+            const interval = setInterval(
                 function () {
 
-
                     if (
-                        index <
-                        stages.length &&
+                        index < stages.length &&
                         loadingText
                     ) {
 
@@ -1465,22 +1107,22 @@ if (form) {
 
                         index++;
 
-                    }
+                    } else {
 
+                        clearInterval(interval);
+
+                    }
 
                 },
                 900
             );
-
 
         }
     );
 
 }
 
-
 </script>
-
 
 </body>
 
