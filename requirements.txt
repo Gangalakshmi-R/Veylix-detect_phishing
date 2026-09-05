@@ -1,25 +1,11 @@
-streamlit
+Flask
+scikit-learn
 pandas
 numpy
-scikit-learn
 joblib
 requests
+dnspython
+beautifulsoup4
 tldextract
-python-dotenv
-fastapi
-uvicorn
-pydantic
-
-# Flask
-# scikit-learn
-# pandas
-# numpy
-# joblib
-# requests
-# dnspython
-# beautifulsoup4
-# tldextract
-# python-whois
-# gunicorn
-
-# gunicorn app:app
+python-whois
+gunicorn
